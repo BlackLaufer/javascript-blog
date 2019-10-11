@@ -1,4 +1,5 @@
 const titleClickHandler = function(event){
+    event.preventDefault();
     const clickedElement = this;
     console.log('Link was clicked!');
   
@@ -23,7 +24,12 @@ const titleClickHandler = function(event){
       activeArticle.classList.remove('active');
   }
     /* get 'href' attribute from the clicked link */
-  
+    const articleSelector = function('href'); 
+
+    console.log(articleSelector);
+
+    
+
     /* find the correct article using the selector (value of 'href' attribute) */
   
     /* add class 'active' to the correct article */
