@@ -34,3 +34,44 @@ const titleClickHandler = function(event){
       correctArticle.classList.add('active');
 }
   
+{
+  const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
+  optArticleTagsSelector = '.post-tags .list';
+  
+  function generateTitleLinks(){
+      let html = '';
+      const emptyList = document.querySelector(optTitleListSelector);
+  
+      function clearContent(content){
+      content.innerHTML = '';
+      }
+      clearContent(emptyList);
+    /* remove contents of titleList */
+    
+    
+    /* for each article */
+  
+      const articles = document.querySelectorAll(optArticleSelector);
+  
+      for(let article of articles){
+          const articleId = article.getAttribute('id');
+          const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+          const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+          console.log(linkHTML);
+      html = html + linkHTML;
+      }
+  
+      emptyList.innerHTML = html;
+  
+      const links = document.querySelectorAll('.titles a');
+      console.log(links);
+      
+      for(let link of links){
+        link.addEventListener('click', titleClickHandler);  }
+  
+      }
+  
+      generateTitleLinks();
+}

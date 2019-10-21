@@ -6,9 +6,9 @@
 }
 
 body {
-  background: #fff;
+  background: #0f0f0f;
   font-family: "Source Sans Pro", sans-serif;
-  color: #444;
+  color: #0f0f0f;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
@@ -17,6 +17,7 @@ body {
 .container {
   max-width: 1140px;
   margin: 0 auto;
+  color: #ff8800;
 }
 
 .section-title {
@@ -29,7 +30,7 @@ body {
 .section-title span {
   text-transform: none;
   font-weight: 400;
-  color: #777777;
+  color: white;
 }
 
 /* Layout */
@@ -50,22 +51,22 @@ body {
 }
 
 .sidebar, .posts {
-  background: #fff;
+  background: url("https://cdn.cultofmac.com/wp-content/uploads/2018/10/IMG_2651-2.cc38d6cb8edf491d9d4ae92851be67a5-780x585.jpg");
   margin-right: 10px;
   padding: 40px;
-  border: 1px solid #444;
+  border: 1px solid #ff8800;
   border-radius: 5px;
 }
 
 /* Logo */
 .logo {
-  font-family: "Sacramento", cursive;
+  font-family: "Roboto Mono", sans-serif;
   font-weight: 400;
   font-size: 104px;
   line-height: 1;
   text-align: center;
   background-image: url("https://wallpapercave.com/wp/wp3422169.jpg");
-  color: #ff8800;
+  color: #008cff;
 }
 
 /* Lists */
@@ -90,6 +91,7 @@ body {
 
 /* Post */
 .post {
+  color: #fff;
   display: none;
 }
 
@@ -99,9 +101,11 @@ body {
 
 .post-author {
   font-style: italic;
+  color: #fff;
 }
 
 .post-tags {
+  color: #fff;
   display: -ms-flexbox;
   display: flex;
 }
