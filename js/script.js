@@ -29,7 +29,8 @@ const titleClickHandler = function(event) {
 const optArticleSelector = '.post',
 optTitleSelector = '.post-title',
 optTitleListSelector = '.titles',
-optArticleTagsSelector = '.post-tags .list';
+optArticleTagsSelector = '.post-tags .list',
+optArticleAuthorSelector= '.post-author';
 
 function generateTitleLinks(customSelector = '') {
     let html = '';
@@ -87,9 +88,9 @@ function generateTags() {
       //      /* END LOOP: for each tag */
         }
       //  /* insert HTML of all the links into the tags wrapper ! */ 
-        console.log(wrappersList);
+      
         wrappersList.innerHTML = html; 
-         
+        console.log(wrappersList);
         html = '';
     }
     /* END LOOP: for every article: */
@@ -130,11 +131,34 @@ function addClickListenersToTags() {
     /* find all links to tags */
     const links = document.querySelectorAll('.tags');
     /* START LOOP: for each link */
-        for (let link of links) {
-    /* add tagClickHandler as event listener for that link */
-            link.addEventListener('click', tagClickHandler);  
-    /* END LOOP: for each link */
-        }
+    for (let link of links) {
+/* add tagClickHandler as event listener for that link */
+        link.addEventListener('click', tagClickHandler);  
+/* END LOOP: for each link */
+    }
 }
     
-addClickListenersToTags();
+function generateAuthors() { 
+  const articles = document.querySelectorAll(optArticleSelector);
+
+  for (let article of articles) {  
+      const wrappersAuthor = article.querySelector(optArticleAuthorSelector);
+      const articleAuthor = article.getAttribute('data-author');
+      wrappersAuthor.innerHTML = articleAuthor;  
+  }
+}  
+
+generateAuthors();
+
+function addClickListenersToAuthor() {
+  const links = document.quertySelectorAll('author');
+  for (let link to links) {
+    link.addEventListener('clik', )
+  }
+}
+/* dodac event klikniecia do kazdego linku ayutora
+
+
+po kliknieiciu przeiterowac po artykulach i sprawdzic czy autor kliknietego linku jest przypisany do data atryutu danego arykulu,
+jesli jest dodac klase active do artykulu jest nie jest nie dodawac*/
+
