@@ -108,7 +108,7 @@ function tagClickHandler(event) {
     /* make a new constant "tag" and extract tag from the "href" constant */
     const tag = href.replace('#tag-', '');
     /* find all tag links with class active */
-    const links = document.querySelectorAll('a.active[href^="#tag-"]');
+    const activeLinks = document.querySelectorAll('a.active[href^="#tag-"]');
     /* START LOOP: for each active tag link */
         for (let activeLink of activeLinks) {
       /* remove class active */
@@ -116,7 +116,7 @@ function tagClickHandler(event) {
       /* END LOOP: for each active tag link */
         }
     /* find all tag links with "href" attribute equal to the "href" constant */
-    const linkstag = document.querySelectorAll('a.[href="+ href +"]');
+    const tagLinks = document.querySelectorAll('a.[href="+ href +"]');
     /* START LOOP: for each found tag link */
         for (let tagLink of tagLinks) {
     /* add class active */
@@ -150,15 +150,42 @@ function generateAuthors() {
 
 generateAuthors();
 
+function authorClickHandler(event) {
+  
+    event.preventDefault();
+    
+    const clickedElement = this;
+    
+    const href = clickedElement.getAttribute('href');
+    
+    const author = href.replace('#author-', '');
+   /*po kliknieiciu przeiterowac po artykulach i sprawdzic czy autor kliknietego linku 
+jest przypisany do data atryutu danego arykulu, jesli jest dodac klase active do artykulu 
+jest nie jest nie dodawac*/
+    const activeLinks = document.querySelectorAll('a.active[href^="#author-"]');
+    console.log(document.quertySelectorAll);
+    
+      for (let activeLink of activeLinks) {
+    
+      activeLink.classList.remove('active');
+    
+      }
+    
+    const authorLinks = document.querySelectorAll('a.[href="+ href +"]');
+    
+      for (let authorLink of authorLinks) {
+    
+      authorLink.classList.add('active');
+    
+      }
+   
+    generateTitleLinks('[data-author="' + author + '"]');
+}
+// dodac event klikniecia do kazdego linku ayutora
 function addClickListenersToAuthor() {
-  const links = document.quertySelectorAll('author');
-  for (let link to links) {
-    link.addEventListener('clik', )
+  const links = document.quertySelectorAll('.author');
+  for (let link of links) {
+    link.addEventListener('clik', authorClickHandler)
   }
 }
-/* dodac event klikniecia do kazdego linku ayutora
-
-
-po kliknieiciu przeiterowac po artykulach i sprawdzic czy autor kliknietego linku jest przypisany do data atryutu danego arykulu,
-jesli jest dodac klase active do artykulu jest nie jest nie dodawac*/
 
