@@ -151,41 +151,30 @@ function generateAuthors() {
 generateAuthors();
 
 function authorClickHandler(event) {
-  
     event.preventDefault();
-    
     const clickedElement = this;
-    
     const href = clickedElement.getAttribute('href');
-    
     const author = href.replace('#author-', '');
    /*po kliknieiciu przeiterowac po artykulach i sprawdzic czy autor kliknietego linku 
 jest przypisany do data atryutu danego arykulu, jesli jest dodac klase active do artykulu 
 jest nie jest nie dodawac*/
     const activeLinks = document.querySelectorAll('a.active[href^="#author-"]');
     console.log(document.quertySelectorAll);
-    
       for (let activeLink of activeLinks) {
-    
       activeLink.classList.remove('active');
-    
       }
-    
     const authorLinks = document.querySelectorAll('a.[href="+ href +"]');
-    
-      for (let authorLink of authorLinks) {
-    
-      authorLink.classList.add('active');
-    
-      }
+    for (let authorLink of authorLinks) {
+        authorLink.classList.add('active');
+    }
    
     generateTitleLinks('[data-author="' + author + '"]');
 }
 // dodac event klikniecia do kazdego linku ayutora
 function addClickListenersToAuthor() {
-  const links = document.quertySelectorAll('.author');
-  for (let link of links) {
-    link.addEventListener('clik', authorClickHandler)
-  }
+    const links = document.quertySelectorAll('.author');
+    for (let link of links) {
+      link.addEventListener('clik', authorClickHandler)
+    }
 }
 
