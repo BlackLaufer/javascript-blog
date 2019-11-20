@@ -144,7 +144,7 @@ function generateAuthors() {
   for (let article of articles) {  
       const wrappersAuthor = article.querySelector(optArticleAuthorSelector);
       const articleAuthor = article.getAttribute('data-author');
-      wrappersAuthor.innerHTML = articleAuthor;  
+      wrappersAuthor.innerHTML = articleAuthor;    
   }
 }  
 
@@ -160,10 +160,12 @@ jest przypisany do data atryutu danego arykulu, jesli jest dodac klase active do
 jest nie jest nie dodawac*/
     const activeLinks = document.querySelectorAll('a.active[href^="#author-"]');
     console.log(document.quertySelectorAll);
-      for (let activeLink of activeLinks) {
+
+    for (let activeLink of activeLinks) {
       activeLink.classList.remove('active');
       }
     const authorLinks = document.querySelectorAll('a.[href="+ href +"]');
+
     for (let authorLink of authorLinks) {
         authorLink.classList.add('active');
     }
@@ -172,9 +174,9 @@ jest nie jest nie dodawac*/
 }
 // dodac event klikniecia do kazdego linku ayutora
 function addClickListenersToAuthor() {
-    const links = document.quertySelectorAll('.author');
+    const links = document.quertySelectorAll('.authors');
     for (let link of links) {
-      link.addEventListener('clik', authorClickHandler)
+      link.addEventListener('click', authorClickHandler)
     }
 }
 
