@@ -32,6 +32,7 @@ optTitleListSelector = '.titles',
 optArticleTagsSelector = '.post-tags .list',
 optArticleTagsLinksSelector = '.post-tags .list li',
 optArticleAuthorSelector= '.post-author',
+optArticleAuthorLinkSelector =  '.post-author a';
 
 function generateTitleLinks(customSelector = '') {
     
@@ -159,8 +160,8 @@ function generateAutors(){
     
     const authors = document.querySelectorAll(optArticleSelector);
     
-    for(let author of authors){
-        const wrapersAuthors = author.querySelector(optArticleAuthorSelector);
+    for(let author of authors) {
+        const wraperAuthors = author.querySelector(optArticleAuthorSelector);
         console.log(wraperAuthors);
 
         let html = '';
@@ -185,26 +186,14 @@ function authorClickHandler(event) {
     event.preventDefault();
     const clickedElement = this;
     const href = clickedElement.getAttribute('href');
-    const author = href.replace('#author-', '');
-   
-    const activeLinks = document.querySelectorAll('a.active[href^="#author-"]');
-    console.log(active)
-
-    for (let activeLink of activeLinks) {
-      activeLink.classList.remove('active');
-      }
-    const authorLinks = document.querySelectorAll('.post-author a');
-
-    for (let authorLink of authorLinks) {
-        authorLink.classList.add('active');
-    }
-   
-    generateTitleLinks('[data-author="' + author + '"]');
+    generateTitleLinks('[data-author~="' + href + '"]');
 }
-// dodac event klikniecia do kazdego linku ayutora
+
 function addClickListenersToAuthor() {
-    const links = document.quertySelectorAll('.authors');
+    const links = document.quertySelectorAll(optArticleAuthorLinkSelector);
     for (let link of links) {
       link.addEventListener('click', authorClickHandler);
     }
 }
+
+addClickListenersToAuthor();
