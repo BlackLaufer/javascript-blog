@@ -186,14 +186,13 @@ function authorClickHandler(event) {
     event.preventDefault();
     const clickedElement = this;
     const href = clickedElement.getAttribute('href');
-    generateTitleLinks('[data-author~="' + href + '"]');
+    generateTitleLinks('[data-author ="' + href + '"]');
 }
 
-function addClickListenersToAuthor() {
-    const links = document.quertySelectorAll(optArticleAuthorLinkSelector);
-    for (let link of links) {
-      link.addEventListener('click', authorClickHandler);
-    }
+function addClickListenersToAuthors() {
+  const links = document.querySelectorAll(optArticleAuthorLinkSelector);
+  for(let link of links) {
+    link.addEventListener('click', authorClickHandler);
+  }
 }
-
-addClickListenersToAuthor();
+addClickListenersToAuthors();
