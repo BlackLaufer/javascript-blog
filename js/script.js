@@ -11,7 +11,7 @@ const titleClickHandler = function(event) {
     clickedElement.classList.add('active'); 
 
     /* [DONE] remove class 'active' from all articles */
-    const activeArticles = document.querySelectorAll('.posts article.active');
+    const activeArticles = document.querySelectorAll('.post.active');
     for (let activeArticle of activeArticles) {
         activeArticle.classList.remove('active');
     }
@@ -32,16 +32,16 @@ optTitleListSelector = '.titles',
 optArticleTagsSelector = '.post-tags .list',
 optArticleTagsLinksSelector = '.post-tags .list li',
 optArticleAuthorSelector= '.post-author',
-optArticleAuthorLinkSelector =  '.post-author a';
+optArticleAuthorLinkSelector =  '.post-author a',
+optTagsListSelector= '.tags.list',
+optCloudClassCount= '5',
+optCloudClassPrefix= 'tag-size-';
 
 function generateTitleLinks(customSelector = '') {
     
     const emptyList = document.querySelector(optTitleListSelector);
 
-    function clearContent(content) {
-        content.innerHTML = '';
-    }
-    clearContent(emptyList);
+    emptyList.innerHTML= "";
     /* remove contents of titleList */
       /* for each article */
     let html = '';
@@ -70,6 +70,23 @@ function clearMessages(){
 	document.getElementById('messages').innerHTML = '';
 }
 
+function calculateTagsParams(tags) {
+    for(let tag in tags) {
+        console.log(tag + 'is used' + tags[tag] + 'times');
+        if(tags[tag] > params.max) {
+            params.max = tags[tag];
+        }
+        if(tags[tag] < params.min) {
+          params.min = tags[tag];
+        }
+    }
+    return params;
+}
+
+function calculateTagClass(count, parms) {
+
+}
+
 function generateTags() {
       /* OK find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
@@ -77,29 +94,31 @@ function generateTags() {
     for (let article of articles) {
       /* find tags wrapper wrapperList?*/
         const wrappersList = article.querySelector(optArticleTagsSelector);
-        /* OK make html variable with empty string */
+/* OK make html variable with empty string */
         let html = '';
-        /* get tags from data-tags attribute */
+/* get tags from data-tags attribute */
         const articleTags = article.getAttribute('data-tags');
-    //     console.log(articleTags);
-    /* split tags into array */
+//     console.log(articleTags);
+/* split tags into array */
         const articleTagsArray = articleTags.split(' ');
-    /* START LOOP: for each tag */
+/* START LOOP: for each tag */
         for (let tag of articleTagsArray) {
-      //    console.log(articleTagsArray);
-      //   /* generate HTML of the link */
+//    console.log(articleTagsArray);
+//   /* generate HTML of the link */
             const linkHTML = '<li><a href="#tag-'+ tag +'">'+ tag +'</a></li>';
-      //     console.log(linkHTML)        
-      //     /* add generated code to html variable */
+//     console.log(linkHTML)        
+//     /* add generated code to html variable */
             html = html + linkHTML;
+
+
             
-      //      /* END LOOP: for each tag */
+//      /* END LOOP: for each tag */
         }
-      //  /* insert HTML of all the links into the tags wrapper ! */ 
+//  /* insert HTML of all the links into the tags wrapper ! */ 
       
         wrappersList.insertAdjacentHTML('beforeend', html)
     }
-    /* END LOOP: for every article: */
+/* END LOOP: for every article: */
 }  
 
 generateTags();
@@ -144,6 +163,9 @@ function addClickListenersToTags() {
 /* END LOOP: for each link */
     }
 }
+
+addClickListenersToTags();
+
     
 function generateAutors() {
     const activeArticles = document.querySelectorAll('.post.active');
@@ -190,9 +212,9 @@ function authorClickHandler(event) {
 }
 
 function addClickListenersToAuthors() {
-  const links = document.querySelectorAll(optArticleAuthorLinkSelector);
-  for(let link of links) {
-      link.addEventListener('click', authorClickHandler);
-  }
+    const links = document.querySelectorAll(optArticleAuthorLinkSelector);
+    for(let link of links) {
+        link.addEventListener('click', authorClickHandler);
+    }
 }
 addClickListenersToAuthors();
