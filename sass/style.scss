@@ -3,11 +3,9 @@
 /* Variables */
 
 $color-light: #fff;
-$color-dark: rgb(15, 15, 15);
-$color-happy: rgb(255, 136, 0);
-$color-cold: rgb(0, 140, 255);
+$color-dark: #444;
 
-$font-logo: 'Roboto Mono', sans-serif;
+$font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
 $font-text: 'Source Sans Pro', sans-serif;
 
@@ -18,7 +16,7 @@ $font-text: 'Source Sans Pro', sans-serif;
 }
 
 body {
-  background: $color-dark;
+  background: $color-light;
   font-family: $font-text;
   color: $color-dark;
   font-weight: 300;
@@ -29,7 +27,6 @@ body {
 .container {
   max-width: 1140px;
   margin: 0 auto;
-  color: $color-happy;
 }
 
 .section-title {
@@ -40,7 +37,7 @@ body {
   span {
     text-transform: none;
     font-weight: 400;
-    color: lighten($color-light, 20%);
+    color: lighten($color-dark, 20%);
   }
 }
 
@@ -52,7 +49,7 @@ body {
 }
 
 .sidebar {
-  flex: 1 0 0; 
+  flex: 1 0 0;
 }
 
 .posts {
@@ -60,10 +57,10 @@ body {
 }
 
 .sidebar, .posts {
-  background: $color-cold;
+  background: $color-light;
   margin-right: 10px;
   padding: 40px;
-  border: 1px solid $color-happy;
+  border: 1px solid $color-dark;
   border-radius: 5px;
 }
 
@@ -75,14 +72,11 @@ body {
   font-size: 104px;
   line-height: 1;
   text-align: center;
-  background-image: url('https://wallpapercave.com/wp/wp3422169.jpg');
-  color: $color-cold;
 }
 
 /* Lists */
 
 .list {
-  
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -108,7 +102,6 @@ body {
 /* Post */
 
 .post {
-  color: $color-light;
   display: none;
   &.active {
     display: block;
@@ -117,13 +110,11 @@ body {
 
 .post-author {
   font-style: italic;
-  color: $color-light;
 }
 
 .post-tags {
-  color: $color-light;
   display: flex;
   p {
-    margin: 100 10px 0 0;
+    margin: 0 10px 0 0;
   }
 }
