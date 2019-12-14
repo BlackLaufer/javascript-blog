@@ -24,9 +24,14 @@ body {
   line-height: 1.7;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   max-width: 1140px;
   margin: 0 auto;
+  padding-bottom: 10px;
 }
 
 .section-title {
@@ -46,14 +51,22 @@ body {
 .wrapper {
   display: flex;
   margin-left: 10px;
+  min-height: 550px;
 }
 
 .sidebar {
   flex: 1 0 0;
-}
+  text-align: center;
+  	  &.list {
+    text-align: center;
+  }	  
+}	
 
 .posts {
-  flex: 2 0 0;
+  flex: 2 0 0;	  
+  position: relative;	  
+  overflow: auto;	
+  margin: 0;  
 }
 
 .sidebar, .posts {
@@ -80,15 +93,19 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin: 0;
   .active {
     font-weight: bold;
   }
 }
 
-.list-horizontal {
-  li {
-    display: inline-block;
-  }
+.list-horizontal li{
+  display: inline;
+  padding: 5px;
+}
+
+.tags-list {
+  padding-left: 0;
 }
 
 /* Authors */
@@ -99,12 +116,27 @@ body {
   }
 }
 
+.authors-list {
+  padding-left: 0;
+
+  a {
+  display:block;
+  }
+}
+
 /* Post */
 
 .post {
-  display: none;
+  height: 0;
+  opacity: 0;
+  transition: 0.2s opacity;
+  transition-timing-function: ease-out;
+  z-index: 0;	  z-index: 0;
+  overflow: hidden;
   &.active {
-    display: block;
+    opacity: 1;
+    z-index: 1;
+    height: auto;
   }
 }
 
@@ -117,4 +149,24 @@ body {
   p {
     margin: 0 10px 0 0;
   }
+}
+
+.tags li {
+  list-style: none;
+}
+
+.tag-size-2 {
+  font-size: 20px;
+}
+
+.tag-size-3{
+  font-size: 25px;
+}
+
+.tag-size-4{
+  font-size: 30px;
+}
+
+.tag-size-5{
+  font-size: 35px;
 }
