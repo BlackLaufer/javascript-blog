@@ -52,11 +52,10 @@
   let html = '';
 
   for(let article of articles) {
-    /* [DONE] get the article id */
+   
     let articleId = article.getAttribute('id');
 
-    /* [DONE] find the title element */
-    /* [DONE] get the title from the title element */
+  
     let articleTitle = article.querySelector(optTitleSelector).innerHTML;
     
     /* [DONE] create HTML of the link */
