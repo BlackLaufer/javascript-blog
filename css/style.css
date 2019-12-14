@@ -14,14 +14,9 @@ body {
   line-height: 1.7;
 }
 
-a {
-  text-decoration: none;
-}
-
 .container {
   max-width: 1140px;
   margin: 0 auto;
-  padding-bottom: 10px;
 }
 
 .section-title {
@@ -48,7 +43,6 @@ a {
 .sidebar {
   -ms-flex: 1 0 0px;
       flex: 1 0 0;
-  text-align: center;
 }
 
 .sidebar.list {
@@ -60,12 +54,12 @@ a {
       flex: 2 0 0;
   position: relative;
   overflow: auto;
-  margin: 0;
 }
 
 .sidebar, .posts {
   background: #fff;
   margin-right: 10px;
+  margin-bottom: 30px;
   padding: 40px;
   border: 1px solid #444;
   border-radius: 5px;
@@ -83,9 +77,7 @@ a {
 /* Lists */
 .list {
   list-style-type: none;
-  margin: 0;
   padding: 0;
-  margin: 0;
 }
 
 .list .active {
@@ -93,25 +85,12 @@ a {
 }
 
 .list-horizontal li {
-  display: inline;
-  padding: 5px;
-}
-
-.tags-list {
-  padding-left: 0;
+  display: inline-block;
 }
 
 /* Authors */
 .authors li {
   margin-bottom: 12px;
-}
-
-.authors-list {
-  padding-left: 0;
-}
-
-.authors-list a {
-  display: block;
 }
 
 /* Post */
@@ -120,7 +99,6 @@ a {
   opacity: 0;
   transition: 0.2s opacity;
   transition-timing-function: ease-out;
-  z-index: 0;
   z-index: 0;
   overflow: hidden;
 }
@@ -144,7 +122,12 @@ a {
   margin: 0 10px 0 0;
 }
 
+.tags a {
+  text-decoration: none;
+}
+
 .tags li {
+  color: orange;
   list-style: none;
 }
 
@@ -162,5 +145,9 @@ a {
 
 .tag-size-5 {
   font-size: 35px;
+}
+
+.post-tags .list a.active {
+  color: red;
 }
 /*# sourceMappingURL=style.css.map */
