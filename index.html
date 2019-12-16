@@ -29,10 +29,7 @@
             </div>
             <div class="post-tags">
               <p><strong>Tags:</strong></p>
-              <ul class="list list-horizontal">
-                <li><a href="#">design</a></li>
-                <li><a href="#">tutorials</a></li>
-              </ul>
+              <ul class="list list-horizontal"></ul>
             </div>
           </article>
           <article class="post" id="article-2" data-tags="rocks" data-author="Theo Tabby">
@@ -47,10 +44,7 @@
             </div>
             <div class="post-tags">
               <p><strong>Tags:</strong></p>
-              <ul class="list list-horizontal">
-                <li><a href="#">news</a></li>
-                <li><a href="#">code</a></li>
-              </ul>
+              <ul class="list list-horizontal"></ul>
             </div>
           </article>
           <article class="post" id="article-3"data-tags="village" data-author="George Tuxedo">
@@ -64,11 +58,7 @@
             </div>
             <div class="post-tags">
               <p><strong>Tags:</strong></p>
-              <ul class="list list-horizontal">
-                <li><a href="#">news</a></li>
-                <li><a href="#">reviews</a></li>
-                <li><a href="#">design</a></li>
-              </ul>
+              <ul class="list list-horizontal"></ul>
             </div>
           </article>
           <article class="post" id="article-4" data-tags="village, rocks" data-author="Kitty Toebean">
@@ -83,11 +73,7 @@
             </div>
             <div class="post-tags">
               <p><strong>Tags:</strong></p>
-              <ul class="list list-horizontal">
-                <li><a href="#">tutorials</a></li>
-                <li><a href="#">code</a></li>
-                <li><a href="#">design</a></li>
-              </ul>
+              <ul class="list list-horizontal"></ul>
             </div>
           </article>
           <article class="post" id="article-5" data-tags="trees, mountain" data-author="Marion Berry">
@@ -102,10 +88,7 @@
             </div>
             <div class="post-tags">
               <p><strong>Tags:</strong></p>
-              <ul class="list list-horizontal">
-                <li><a href="#">design</a></li>
-                <li><a href="#">reviews</a></li>
-              </ul>
+              <ul class="list list-horizontal"></ul>
             </div>
           </article>
           <article class="post" id="article-6" data-tags="lake" data-author="George Tuxedo">
@@ -120,10 +103,7 @@
             </div>
             <div class="post-tags">
               <p><strong>Tags:</strong></p>
-              <ul class="list list-horizontal">
-                <li><a href="#">reviews</a></li>
-                <li><a href="#">code</a></li>
-              </ul>
+              <ul class="list list-horizontal"></ul>
             </div>
           </article>
           <article class="post" id="article-7" data-tags="rocks, trips, lake" data-author="Kitty Toebean">
@@ -138,10 +118,7 @@
             </div>
             <div class="post-tags">
               <p><strong>Tags:</strong></p>
-              <ul class="list list-horizontal">
-                <li><a href="#">code</a></li>
-                <li><a href="#">news</a></li>
-              </ul>
+              <ul class="list list-horizontal"></ul>
             </div>
           </article>
           <article class="post" id="article-8" data-tags="oceans" data-author="Theo Tabby">
@@ -156,11 +133,7 @@
             </div>
             <div class="post-tags">
               <p><strong>Tags:</strong></p>
-              <ul class="list list-horizontal">
-                <li><a href="#">news</a></li>
-                <li><a href="#">design</a></li>
-                <li><a href="#">tutorials</a></li>
-              </ul>
+              <ul class="list list-horizontal"></ul>
             </div>
           </article>
           <article class="post" id="article-9" data-tags="seas, trips" data-author="Marion Berry">
@@ -175,10 +148,7 @@
             </div>
             <div class="post-tags">
               <p><strong>Tags:</strong></p>
-              <ul class="list list-horizontal">
-                <li><a href="#">news</a></li>
-                <li><a href="#">tutorials</a></li>
-              </ul>
+              <ul class="list list-horizontal"></ul>
             </div>
           </article>
           <article class="post" id="article-10" data-tags="trips, oceans" data-author="George Tuxedo">
@@ -194,10 +164,6 @@
             <div class="post-tags">
               <p><strong>Tags:</strong></p>
               <ul class="list list-horizontal">
-                <li><a href="#">code</a></li>
-                <li><a href="#">design</a></li>
-                <li><a href="#">news</a></li>
-                <li><a href="#">reviews</a></li>
               </ul>
             </div>
           </article>
@@ -205,20 +171,39 @@
         <aside class="sidebar tags list">
           <h2 class="section-title">Tags</h2>
           <ul class="tags-list">
-            <li><a href="#">design</a> <span>(6)</span></li>
-            <li><a href="#">code</a> <span>(5)</span></li>
-            <li><a href="#">tutorials</a> <span>(4)</span></li>
-            <li><a href="#">reviews</a> <span>(4)</span></li>
-            <li><a href="#">news</a> <span>(6)</span></li>
           </ul>
           <h2 class="section-title">Authors</h2>
-          <ul class="authors-list">
-            
+          <ul class="authors-list">  
           </ul>
         </aside>
       </main>
     </div>
   </div>
+  <script id="template-article-link" type="text/x-handlebars-template">
+    <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
+  </script>
+
+  <script id="template-tag-link" type="text/x-handlebars-template">
+    <li><a href="#tag-{{ tag }}">{{ tag }}</a></li>
+  </script>
+
+  <script id="template-author-link" type="text/x-handlebars-template">
+    <li><a href="#author-{{ author }}">{{ author }}</a></li>
+  </script>
+
+  <script id="template-tag-cloud-link" type="text/x-handlebars-template">
+    {{#each tags}}
+    <li><a class=" {{ className }}" href="#tag-{{ tag }}">{{ tag }}</a></li>
+    {{/each}}
+  </script>
+
+  <script id="template-author-cloud-link" type="text/x-handlebars-template">
+    {{#each authors}}
+    <li><a href="#author-{{ author }}">{{ author }}({{ count }})</a></li>
+    {{/each}}
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
 
   <script src="js/script.js"></script>
 </body>
